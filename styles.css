@@ -1,0 +1,248 @@
+body, h1, p, a {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body styling */
+body {
+    background: linear-gradient(to right, #ff6a95, #ff95a3);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 50px; /* Adjusted to add space at the bottom */
+}
+
+h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+h1::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: transparent;
+    background: -webkit-linear-gradient(#ff4081, #ff6a95);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index: -1;
+    filter: blur(5px);
+}
+
+p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    animation: fadeInText 2s ease-in;
+}
+
+.images-section {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    gap: 20px; /* Space between images */
+}
+
+.image-card {
+    text-align: center;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeInImageCard 1.5s ease-in-out;
+}
+
+.image-card img {
+    width: 150px; /* Adjust the size as needed */
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%; /* Makes the image round */
+    margin-bottom: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.image-card p {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+/* GIF styling */
+.gif {
+    width: 300px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 20px 0;
+    animation: bounceIn 1s ease;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    color: #ff6a95;
+    background-color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeInButton 2.5s ease-in-out;
+    margin-bottom: 30px; /* Adds space below the button */
+}
+
+.button:hover {
+    transform: translateY(-5px);
+    background-color: #ff8ab3;
+    color: #fff;
+}
+
+.button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeInContainer {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInButton {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInImageCard {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em; /* Reduce heading size on smaller screens */
+    }
+
+    p {
+        font-size: 1.2em; /* Adjust paragraph font size */
+        margin: 10px 0; /* Reduce margin for better spacing */
+    }
+
+    .images-section {
+        flex-direction: column; /* Stack images vertically */
+        align-items: center; /* Center images */
+    }
+
+    .image-card {
+        width: 90%; /* Make images fill most of the screen width */
+        margin-bottom: 20px; /* Add space between stacked images */
+    }
+
+    .image-card img {
+        width: 120px; /* Smaller image size for mobile */
+        height: 120px;
+    }
+
+    .gif {
+        width: 80%; /* Responsive width for GIF */
+        max-width: 300px; /* Maintain a max width */
+    }
+
+    .button {
+        font-size: 1.2em; /* Smaller font size for button text */
+        padding: 12px 24px; /* Adjust padding for the button */
+    }
+}
+
+/* Extra Small Devices (up to 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em; /* Further reduce heading size */
+    }
+
+    p {
+        font-size: 1em; /* Further reduce paragraph size */
+    }
+
+    .image-card img {
+        width: 100px; /* Smaller images for very small screens */
+        height: 100px;
+    }
+
+    .button {
+        font-size: 1em; /* Smaller button font size */
+        padding: 10px 20px; /* Adjust padding */
+    }
+}

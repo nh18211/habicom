@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #ffafbd, #ffc3a0); /* Soft pink gradient */
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Changed from height to min-height */
+    position: relative;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 182, 193, 0.6); /* Light pink overlay */
+    z-index: 1;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.2); /* Soft white background with transparency */
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px); /* Adds a glassmorphism effect */
+    margin: 20px; /* Adds some space around the content when scrolling */
+}
+
+h1 {
+    font-size: 3.5em;
+    margin-bottom: 25px;
+    animation: fadeInTitle 2s ease-in-out forwards;
+    color: #ff6a95; /* Strong pink color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+p {
+    font-size: 1.3em;
+    line-height: 1.6;
+    margin-top: 15px;
+    animation: fadeInText 2s ease-in-out forwards;
+    color: #fff;
+    opacity: 0; /* Initially hidden */
+}
+
+.image-card {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.image-card img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%; /* Circular image */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    animation: rotateImage 10s linear infinite;
+}
+
+.hidden-message {
+    margin-top: 30px;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #ff6a95;
+    font-size: 1.2em;
+    display: none; /* Hidden by default */
+    animation: fadeInText 2s ease-in-out forwards;
+}
+
+.reveal-button {
+    margin-top: 30px;
+    padding: 12px 25px;
+    font-size: 1.3em;
+    color: #fff;
+    background-color: #ff6a95;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.reveal-button:hover {
+    background-color: #ff8ab3;
+    transform: translateY(-3px);
+}
+
+.reveal-button:active {
+    background-color: #ff4071;
+    transform: translateY(2px);
+}
+
+/* Keyframe Animations */
+@keyframes fadeInTitle {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateImage {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
